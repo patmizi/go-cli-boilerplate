@@ -10,7 +10,7 @@ BINARY_UNIX=unix_$(BINARY_NAME)
 
 all: test build
 build:
-				$(GOBUILD) -o $(BINARY_NAME) -v ./...
+				$(GOBUILD) -o $(BINARY_NAME) -v
 test:
 				$(GOTEST) -v ./...
 clean:
