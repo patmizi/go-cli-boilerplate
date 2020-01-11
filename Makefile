@@ -10,7 +10,7 @@ BINARY_UNIX=unix_$(BINARY_NAME)
 
 all: test build
 build:
-				$(GOBUILD) -o $(BINARY_NAME) -v
+				$(GOBUILD) -o $(BINARY_NAME) -v ./...
 test:
 				$(GOTEST) -v ./...
 clean:
@@ -18,7 +18,8 @@ clean:
 				rm -f $(BINARY_NAME)
 				rm -f $(BINARY_UNIX)
 run:
-				$(GOBUILD) -o $(BINARY_NAME) -v ./...
+				$(GOCLEAN)
+				$(GOBUILD) -o $(BINARY_NAME) -v
 				./$(BINARY_NAME)
 deps:
 				$(GOGET) github.com/spf13/cobra/cobra
